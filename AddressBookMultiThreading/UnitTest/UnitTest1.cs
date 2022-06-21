@@ -24,10 +24,17 @@ namespace AddressBookTest
             AddressList.Add(new AddressBook(Firstname: "Lucifer", Lastname: "Harward", Address: "Buckhimgam", City: "London", State: "NewYork", Zip: 147856, PhoneNumber: 7842365898, Email: "harwardlucifer@gmail.com"));
             AddressList.Add(new AddressBook(Firstname: "Pablo", Lastname: "Escobar", Address: "BeverlyHills", City: "SanAndreas", State: "Washington", Zip: 136987, PhoneNumber: 7846932568, Email: "pablo@gmail.com"));
 
+            // Without Thread
             DateTime StartDateTime = DateTime.Now;
             addressBookOperations.AddContacts(AddressList);
             DateTime StopDateTimes = DateTime.Now;
             Console.WriteLine("Duration without threads: " + (StopDateTimes - StartDateTime));
+
+            //With Thread
+            DateTime StartDateTimeThread = DateTime.Now;
+            addressBookOperations.AddContactsThread(AddressList);
+            DateTime StopDateTimeThread = DateTime.Now;
+            Console.WriteLine("Duration with threads: " + (StopDateTimeThread - StartDateTimeThread));
         }
     }
 }
